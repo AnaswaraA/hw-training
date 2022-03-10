@@ -1,0 +1,38 @@
+Data loading ajax URL
+2 Request Headers:
+
+  Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+  Accept-Encoding: gzip, deflate, br
+  Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
+  Cache-Control: max-age=0
+  Connection: keep-alive
+  Cookie: Network-Type=4g; T=TI164690700469000161652615624863447085803366000616189150909785944014; pxcts=425a1da9-a05a-11ec-a9f7-6c79774a694b; _pxvid=425a11c1-a05a-11ec-a9f7-6c79774a694b; AMCVS_17EB401053DAF4840A490D4C%40AdobeOrg=1; AMCV_17EB401053DAF4840A490D4C%40AdobeOrg=-227196251%7CMCIDTS%7C19062%7CMCMID%7C30464588139561604248004281399290282627%7CMCAAMLH-1647511806%7C12%7CMCAAMB-1647511806%7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1646914207s%7CNONE%7CMCAID%7CNONE; gpv_pn=Store%20%3AAudio%20%26%20Video; gpv_pn_t=Store%20Browse; s_cc=true; S=d1t14Pz8/Pz8/Oj8wGD8/DhNTP5AweStmcF+T23csiReJuZhl8hd3hCRRD1lr21BXS9KwVVkdQ6vfYd/7sey2X3m5XA==; _px3=2269717aa86aa9ad1cfb355a5e0d71f217195ed2aa83dbefd5fb9046076236ab:kH0jvCwKpIys51NLHW+8VmwbzKAFcKBmfxl3YPuG8J0cCnEDMpViYETKgzFWHb8+Umx/X50ud40Mmamu8d49dQ==:1000:X7IcfmHgrty2oBE/Js0j8QobZ41+E/joZk0SxCqrBTeFAUCxgWRczua1/ftkLTvymnYLLpFRxDO48vTnj6YAJLz0XlX3vc50dU9A204RYak2tQiX5Nbwu1KKA0eMPsf+5m+V+WDvErPPEOSaMU6vAxFzQ+ayJvbOFqFkzKcXYdfFxq93ISt7tb5QI8GHtEtPPLFZHfpKpBTrMuzpJLYxXA==; SN=VI3B561AA1D7B7494799E3FC48111EFEA8.TOK5F5FAE10370F4DEA8A3780AE7B875E93.1646909493.LO
+  Host: www.flipkart.com
+  sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="99", "Google Chrome";v="99"
+  sec-ch-ua-mobile: ?0
+  sec-ch-ua-platform: "Linux"
+  Sec-Fetch-Dest: document
+  Sec-Fetch-Mode: navigate
+  Sec-Fetch-Site: none
+  Sec-Fetch-User: ?1
+  Upgrade-Insecure-Requests: 1
+  User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36
+3 Response Headers
+  Content-Encoding: gzip
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-eval' https://*.flixcart.com https://*.flixcart.net https://flipkart.d1.sc.omtrdc.net https://dpm.demdex.net https://tnc.phonepe.com https://captcha.px-cdn.net 'nonce-11061200104170709287'; style-src 'self' 'unsafe-inline' https://*.flixcart.com https://tnc.phonepe.com https://*.flixcart.net; img-src 'self' data: blob: https://*.flixcart.com https://*.flixcart.net https://images.ixigo.com https://flipkart.d1.sc.omtrdc.net https://www.facebook.com https://*.fkapi.net https://googleads.g.doubleclick.net https://www.google.com https://www.google.co.in https://www.googleadservices.com https://sp.analytics.yahoo.com https://bat.bing.com https://bat.r.msn.com https://pay.payzippy.com https://1.pay.payzippy.com https://tnc.phonepe.com; font-src 'self' data: https://*.flixcart.com https://tnc.phonepe.com https://*.flixcart.net; frame-src 'self' https://*.flipkart.com http://*.flipkart.com https://*.youtube.com https://youtube.com https://*.vimeo.com https://pay.payzippy.com https://1.pay.payzippy.com https://tnc.phonepe.com https://cdemux.appspot.com 'nonce-11061200104170709287'; worker-src 'self' https://*.flipkart.com blob:; child-src 'self' https://*.flipkart.com 'nonce-11061200104170709287'; connect-src 'self' *; object-src 'none'; base-uri 'self'; report-uri https://sentry.flipkart.com/api/69/security/?sentry_key=8c5053b8efc541dca3d22ce55f00a82e&sentry_release=4.81.1
+  Content-Type: text/html; charset=utf-8
+  Date: Thu, 10 Mar 2022 10:51:46 GMT
+  Server: nginx
+  Set-Cookie: T=TI164690700469000161652615624863447085803366000616189150909785944014; Max-Age=31536000; Domain=flipkart.com; Path=/; Expires=Fri, 10 Mar 2023 10:51:46 GMT; Secure; SameSite=None
+  Set-Cookie: T=TI164690700469000161652615624863447085803366000616189150909785944014; Max-Age=31536000; Domain=flipkart.net; Path=/; Expires=Fri, 10 Mar 2023 10:51:46 GMT; Secure; SameSite=None
+  Set-Cookie: SN=VI3B561AA1D7B7494799E3FC48111EFEA8.TOK5F5FAE10370F4DEA8A3780AE7B875E93.1646909506.LO; Max-Age=15778476; Domain=flipkart.com; Path=/; Expires=Fri, 09 Sep 2022 01:46:22 GMT; HttpOnly
+  Transfer-Encoding: chunked
+  X-Content-Type-Options: nosniff
+  x-e-id: 10.33.62.190
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+4:Response cookies
+ 
+Request method type
+Response status code
+Inspect and find category name
