@@ -32,7 +32,10 @@ Data loading ajax URL
   X-Frame-Options: SAMEORIGIN
   X-XSS-Protection: 1; mode=block
 4:Response cookies
+	TI164690700469000161652615624863447085803366000616189150909785944014	flipkart.net	/	365.0 days	179		✓	None			Medium	T	TI164690700469000161652615624863447085803366000616189150909785944014	flipkart.com	/	365.0 days	180		✓	None			Medium	
+  SN	VI3B561AA1D7B7494799E3FC48111EFEA8.TOK5F5FAE10370F4DEA8A3780AE7B875E93.1646909506.LO	flipkart.com	/	182.6 days	183	✓					Medium
  
-Request method type
-Response status code
+Request method type:GET
+Response status code:200 OK
 Inspect and find category name
+/html/body/div/div/div[3]/div/div[1]/div/div/div/div/section/div[2]/div[2]/a[1]
