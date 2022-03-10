@@ -1,4 +1,5 @@
-Data loading ajax URL
+Data loading ajax URL:
+https://www.flipkart.com/audio-video/~cs-53mrbtcuf5/pr?sid=0pm&collection-tab-name=Audio+And+Video&p%5B%5D=facets.fulfilled_by%255B%255D%3DFlipkart%2BAssured&p%5B%5D=facets.availability%255B%255D%3DExclude%2BOut%2Bof%2BStock&p%5B%5D=facets.rating%255B%255D%3D4%25E2%2598%2585%2B%2526%2Babove&fm=neo%2Fmerchandising&iid=M_d565fbf6-0263-4fce-b0b8-48e083237d0e_1_372UD5BXDFYS_MC.9JGNW7M0TUHD&otracker=hp_rich_navigation_1_1.navigationCard.RICH_NAVIGATION_Electronics~Audio~All_9JGNW7M0TUHD&otracker1=hp_rich_navigation_PINNED_neo%2Fmerchandising_NA_NAV_EXPANDABLE_navigationCard_cc_1_L2_view-all&cid=9JGNW7M0TUHD
 2 Request Headers:
 
   Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
@@ -39,3 +40,6 @@ Request method type:GET
 Response status code:200 OK
 Inspect and find category name
 /html/body/div/div/div[3]/div/div[1]/div/div/div/div/section/div[2]/div[2]/a[1]
+//*[@id="container"]/div/div[3]/div/div[1]/div/div/div/div/section/div[2]/div[1]
+<div class="TB_InB"><span><svg width="10" height="10" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="_2Iqv73 _2tTQHw"><path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="_3iSBSZ"></path></svg></span><a class="_1jJQdf _2Mji8F" title="Audio &amp; Video" href="/audio-video/pr?sid=0pm&amp;p[]=facets.fulfilled_by%255B%255D%3DFlipkart%2BAssured&amp;p[]=facets.rating%255B%255D%3D4%25E2%2598%2585%2B%2526%2Babove&amp;p[]=facets.availability%255B%255D%3DExclude%2BOut%2Bof%2BStock&amp;otracker=categorytree">Audio &amp; Video</a></div>
+
