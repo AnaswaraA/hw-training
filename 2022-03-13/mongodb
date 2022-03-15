@@ -1,0 +1,573 @@
+ubuntu@ubuntu-HP-Laptop-15-bs1xx:~$ mongo
+2022-03-15T08:51:42.911+0530 I CONTROL  [initandlisten] 
+> db.cutomers.find().pretty( );
+{
+	"_id" : ObjectId("622f004ff8cd61baf13976f2"),
+	"first_name" : "jhon",
+	"last_name" : "f",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f3"),
+	"first_name" : "AnaS",
+	"last_name" : "swara"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f4"),
+	"first_name" : "Ammu",
+	"last_name" : "anu"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f5"),
+	"first_name" : "Ann",
+	"last_name" : "r",
+	"gender" : "f"
+}
+> 
+> db.products.deleteMany({})
+{ "acknowledged" : true, "deletedCount" : 1 }
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+test    0.000GB
+> db.cutomers.insert({"first_name" :"Ansj","last_name":})
+2022-03-15T10:50:48.754+0530 E QUERY    [thread1] SyntaxError: expected expression, got '}' @(shell):1:53
+> db.cutomers.insert({"first_name" :"Ansj","last_name":A})
+2022-03-15T10:51:10.131+0530 E QUERY    [thread1] ReferenceError: A is not defined :
+@(shell):1:42
+> db.cutomers.insert({"first_name" :"Ansj","last_name":"A"})
+WriteResult({ "nInserted" : 1 })
+> db.cutomers.update({"first_name":"jhon"},{$inc:{"Age":"32"}});
+WriteResult({
+	"nMatched" : 0,
+	"nUpserted" : 0,
+	"nModified" : 0,
+	"writeError" : {
+		"code" : 14,
+		"errmsg" : "Cannot increment with non-numeric argument: {Age: \"32\"}"
+	}
+})
+> ^C
+bye
+ubuntu@ubuntu-HP-Laptop-15-bs1xx:~$ mongo
+MongoDB shell version v3.6.3
+connecting to: mongodb://127.0.0.1:27017
+MongoDB server version: 3.6.3
+Server has startup warnings: 
+2022-03-15T08:51:39.952+0530 I STORAGE  [initandlisten] 
+2022-03-15T08:51:39.952+0530 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2022-03-15T08:51:39.952+0530 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2022-03-15T08:51:42.911+0530 I CONTROL  [initandlisten] 
+2022-03-15T08:51:42.911+0530 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2022-03-15T08:51:42.911+0530 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2022-03-15T08:51:42.911+0530 I CONTROL  [initandlisten] 
+> db.cutomers.find().pretty( )
+{
+	"_id" : ObjectId("622f004ff8cd61baf13976f2"),
+	"first_name" : "jhon",
+	"last_name" : "f",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f3"),
+	"first_name" : "AnaS",
+	"last_name" : "swara"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f4"),
+	"first_name" : "Ammu",
+	"last_name" : "anu"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f5"),
+	"first_name" : "Ann",
+	"last_name" : "r",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("6230224f6a8919acba77e3ac"),
+	"first_name" : "Ansj",
+	"last_name" : "A"
+}
+> db.cutomers.update({"first_name":"jhon"},{$inc:{"Age":32}});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.cutomers.find().pretty( )
+{
+	"_id" : ObjectId("622f004ff8cd61baf13976f2"),
+	"first_name" : "jhon",
+	"last_name" : "f",
+	"gender" : "f",
+	"Age" : 32
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f3"),
+	"first_name" : "AnaS",
+	"last_name" : "swara"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f4"),
+	"first_name" : "Ammu",
+	"last_name" : "anu"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f5"),
+	"first_name" : "Ann",
+	"last_name" : "r",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("6230224f6a8919acba77e3ac"),
+	"first_name" : "Ansj",
+	"last_name" : "A"
+}
+> db.cutomers.update({"first_name":"jhon"},{$unset:"Age"});
+WriteResult({
+	"nMatched" : 0,
+	"nUpserted" : 0,
+	"nModified" : 0,
+	"writeError" : {
+		"code" : 9,
+		"errmsg" : "Modifiers operate on fields but we found type string instead. For example: {$mod: {<field>: ...}} not {$unset: \"Age\"}"
+	}
+})
+> db.cutomers.update({"first_name":"jhon"},{$unset:{"Age":32}});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.cutomers.find().pretty( )
+{
+	"_id" : ObjectId("622f004ff8cd61baf13976f2"),
+	"first_name" : "jhon",
+	"last_name" : "f",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f3"),
+	"first_name" : "AnaS",
+	"last_name" : "swara"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f4"),
+	"first_name" : "Ammu",
+	"last_name" : "anu"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f5"),
+	"first_name" : "Ann",
+	"last_name" : "r",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("6230224f6a8919acba77e3ac"),
+	"first_name" : "Ansj",
+	"last_name" : "A"
+}
+
+
+for insert value using update function:
+db.cutomers.update({"first_name":"abhay"},{"first_name":"Abhay","last_name":"mohan"},{upsert:true});
+WriteResult({
+	"nMatched" : 0,
+	"nUpserted" : 1,
+	"nModified" : 0,
+	"_id" : ObjectId("6230267416d3fdf372ebfa7d")
+})
+> db.cutomers.find().pretty( )
+{
+	"_id" : ObjectId("622f004ff8cd61baf13976f2"),
+	"first_name" : "jhon",
+	"last_name" : "f",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f3"),
+	"first_name" : "AnaS",
+	"last_name" : "swara"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f4"),
+	"first_name" : "Ammu",
+	"last_name" : "anu"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f5"),
+	"first_name" : "Ann",
+	"last_name" : "r",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("6230224f6a8919acba77e3ac"),
+	"first_name" : "Ansj",
+	"last_name" : "A"
+}
+{
+	"_id" : ObjectId("6230267416d3fdf372ebfa7d"),
+	"first_name" : "Abhay",
+	"last_name" : "mohan"
+}
+rename:
+> db.cutomers.update({"first_name":"Ann"},{$rename:{"gender":"sex"}});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.cutomers.find().pretty( )
+{
+	"_id" : ObjectId("622f004ff8cd61baf13976f2"),
+	"first_name" : "jhon",
+	"last_name" : "f",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f3"),
+	"first_name" : "AnaS",
+	"last_name" : "swara"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f4"),
+	"first_name" : "Ammu",
+	"last_name" : "anu"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f5"),
+	"first_name" : "Ann",
+	"last_name" : "r",
+	"sex" : "f"
+}
+{
+	"_id" : ObjectId("6230224f6a8919acba77e3ac"),
+	"first_name" : "Ansj",
+	"last_name" : "A"
+}
+{
+	"_id" : ObjectId("6230267416d3fdf372ebfa7d"),
+	"first_name" : "Abhay",
+	"last_name" : "mohan"
+}
+> 
+delete
+> db.cutomers.remove({"first_name":"Abhay"});
+WriteResult({ "nRemoved" : 1 })
+> db.cutomers.find().pretty( )
+{
+	"_id" : ObjectId("622f004ff8cd61baf13976f2"),
+	"first_name" : "jhon",
+	"last_name" : "f",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f3"),
+	"first_name" : "AnaS",
+	"last_name" : "swara"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f4"),
+	"first_name" : "Ammu",
+	"last_name" : "anu"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f5"),
+	"first_name" : "Ann",
+	"last_name" : "r",
+	"sex" : "f"
+}
+{
+	"_id" : ObjectId("6230224f6a8919acba77e3ac"),
+	"first_name" : "Ansj",
+	"last_name" : "A"
+}
+only delete one item if the id is same
+> db.cutomers.remove({"gender":"f"},{justOne:true});
+WriteResult({ "nRemoved" : 1 })
+> db.cutomers.find().pretty( )
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f3"),
+	"first_name" : "AnaS",
+	"last_name" : "swara"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f4"),
+	"first_name" : "Ammu",
+	"last_name" : "anu"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f5"),
+	"first_name" : "Ann",
+	"last_name" : "r",
+	"sex" : "f"
+}
+{
+	"_id" : ObjectId("6230224f6a8919acba77e3ac"),
+	"first_name" : "Ansj",
+	"last_name" : "A"
+}
+insertion
+:> db.cutomers.insert([{"first_name" :"Andriya","last_name":"sammy","gender":"f"},{"first_name":"wash","last_name":"san","gender":"m"}]);
+BulkWriteResult({
+	"writeErrors" : [ ],
+	"writeConcernErrors" : [ ],
+	"nInserted" : 2,
+	"nUpserted" : 0,
+	"nMatched" : 0,
+	"nModified" : 0,
+	"nRemoved" : 0,
+	"upserted" : [ ]
+})
+> db.cutomers.find().pretty( )
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f3"),
+	"first_name" : "AnaS",
+	"last_name" : "swara"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f4"),
+	"first_name" : "Ammu",
+	"last_name" : "anu"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f5"),
+	"first_name" : "Ann",
+	"last_name" : "r",
+	"sex" : "f"
+}
+{
+	"_id" : ObjectId("6230224f6a8919acba77e3ac"),
+	"first_name" : "Ansj",
+	"last_name" : "A"
+}
+{
+	"_id" : ObjectId("62302cd0d76cd49b89be9b7c"),
+	"first_name" : "Anuj",
+	"last_name" : "sam",
+	"gender" : "m"
+}
+{
+	"_id" : ObjectId("62302d22d76cd49b89be9b7d"),
+	"first_name" : "Andriya",
+	"last_name" : "sammy",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("62302d22d76cd49b89be9b7e"),
+	"first_name" : "wash",
+	"last_name" : "san",
+	"gender" : "m"
+}
+find:
+> db.cutomers.find({"first_name":"Anuj"});
+{ "_id" : ObjectId("62302cd0d76cd49b89be9b7c"), "first_name" : "Anuj", "last_name" : "sam", "gender" : "m" }
+> db.cutomers.find({"first_name":"Anuj"}).pretty();
+{
+	"_id" : ObjectId("62302cd0d76cd49b89be9b7c"),
+	"first_name" : "Anuj",
+	"last_name" : "sam",
+	"gender" : "m"
+}
+> 
+> db.cutomers.find({"last_name":"sammy"}).pretty();
+{
+	"_id" : ObjectId("62302d22d76cd49b89be9b7d"),
+	"first_name" : "Andriya",
+	"last_name" : "sammy",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("62302eced76cd49b89be9b7f"),
+	"first_name" : "sana",
+	"last_name" : "sammy",
+	"gender" : "f"
+}
+> 
+OR
+> db.cutomers.find({$or:[{"last_name":"sammy"},{"last_name":"san"}]}).pretty();
+{
+	"_id" : ObjectId("62302d22d76cd49b89be9b7d"),
+	"first_name" : "Andriya",
+	"last_name" : "sammy",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("62302d22d76cd49b89be9b7e"),
+	"first_name" : "wash",
+	"last_name" : "san",
+	"gender" : "m"
+}
+{
+	"_id" : ObjectId("62302eced76cd49b89be9b7f"),
+	"first_name" : "sana",
+	"last_name" : "sammy",
+	"gender" : "f"
+}
+> 
+greater than and lesser than
+> db.cutomers.find({age:{$lt:40}}).pretty();
+{
+	"_id" : ObjectId("62303524d76cd49b89be9b81"),
+	"first_name" : "wh",
+	"last_name" : "san",
+	"gender" : "m",
+	"age" : 32
+}
+> db.cutomers.find({age:{$gt:40}}).pretty();
+{
+	"_id" : ObjectId("62303524d76cd49b89be9b80"),
+	"first_name" : "A",
+	"last_name" : "s",
+	"gender" : "m",
+	"age" : 54
+}
+ascending order
+> db.cutomers.find().sort({last_name:1})pretty();
+2022-03-15T14:50:47.683+0530 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:38
+> db.cutomers.find().sort({last_name:1}).pretty();
+{
+	"_id" : ObjectId("6230224f6a8919acba77e3ac"),
+	"first_name" : "Ansj",
+	"last_name" : "A"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f4"),
+	"first_name" : "Ammu",
+	"last_name" : "anu"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f5"),
+	"first_name" : "Ann",
+	"last_name" : "r",
+	"sex" : "f"
+}
+{
+	"_id" : ObjectId("62303524d76cd49b89be9b80"),
+	"first_name" : "A",
+	"last_name" : "s",
+	"gender" : "m",
+	"age" : 54
+}
+{
+	"_id" : ObjectId("623035f3d76cd49b89be9b82"),
+	"first_name" : "q",
+	"last_name" : "s",
+	"gender" : "m",
+	"age" : ""
+}
+{
+	"_id" : ObjectId("62302cd0d76cd49b89be9b7c"),
+	"first_name" : "Anuj",
+	"last_name" : "sam",
+	"gender" : "m"
+}
+{
+	"_id" : ObjectId("62302d22d76cd49b89be9b7d"),
+	"first_name" : "Andriya",
+	"last_name" : "sammy",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("62302eced76cd49b89be9b7f"),
+	"first_name" : "sana",
+	"last_name" : "sammy",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("62302d22d76cd49b89be9b7e"),
+	"first_name" : "wash",
+	"last_name" : "san",
+	"gender" : "m"
+}
+{
+	"_id" : ObjectId("62303524d76cd49b89be9b81"),
+	"first_name" : "wh",
+	"last_name" : "san",
+	"gender" : "m",
+	"age" : 32
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f3"),
+	"first_name" : "AnaS",
+	"last_name" : "swara"
+}
+> descending
+> db.cutomers.find().sort({last_name:-1}).pretty();
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f3"),
+	"first_name" : "AnaS",
+	"last_name" : "swara"
+}
+{
+	"_id" : ObjectId("62302d22d76cd49b89be9b7e"),
+	"first_name" : "wash",
+	"last_name" : "san",
+	"gender" : "m"
+}
+{
+	"_id" : ObjectId("62303524d76cd49b89be9b81"),
+	"first_name" : "wh",
+	"last_name" : "san",
+	"gender" : "m",
+	"age" : 32
+}
+{
+	"_id" : ObjectId("62302d22d76cd49b89be9b7d"),
+	"first_name" : "Andriya",
+	"last_name" : "sammy",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("62302eced76cd49b89be9b7f"),
+	"first_name" : "sana",
+	"last_name" : "sammy",
+	"gender" : "f"
+}
+{
+	"_id" : ObjectId("62302cd0d76cd49b89be9b7c"),
+	"first_name" : "Anuj",
+	"last_name" : "sam",
+	"gender" : "m"
+}
+{
+	"_id" : ObjectId("62303524d76cd49b89be9b80"),
+	"first_name" : "A",
+	"last_name" : "s",
+	"gender" : "m",
+	"age" : 54
+}
+{
+	"_id" : ObjectId("623035f3d76cd49b89be9b82"),
+	"first_name" : "q",
+	"last_name" : "s",
+	"gender" : "m",
+	"age" : ""
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f5"),
+	"first_name" : "Ann",
+	"last_name" : "r",
+	"sex" : "f"
+}
+{
+	"_id" : ObjectId("622f01a8f8cd61baf13976f4"),
+	"first_name" : "Ammu",
+	"last_name" : "anu"
+}
+{
+	"_id" : ObjectId("6230224f6a8919acba77e3ac"),
+	"first_name" : "Ansj",
+	"last_name" : "A"
+}
+> count
+<pre> db.cutomers.find().count();
+11
+</pre>
+db.cutomers.find().limit(4).sort({"last_name":1});
+> db.cutomers.find().forEach(function(doc){print("Customer name : "+doc.first_name)});
+Customer name : AnaS
+Customer name : Ammu
+Customer name : Ann
+Customer name : Ansj
+Customer name : Anuj
+Customer name : Andriya
+Customer name : wash
+Customer name : sana
+Customer name : A
+Customer name : wh
+Customer name : q
+> 
+
+
+
