@@ -8,3 +8,11 @@ response.xpath('//a[@id = "acrCustomerReviewLink"]/span[@id = "acrCustomerReview
 review:
 response.xpath('//a[@class="a-popover-trigger a-declarative"]/i[@class ="a-icon a-icon-star a-star-4"]/span/text()').extract_first()
 '4.2 out of 5 stars'
+ASIN:
+response.xpath('//table[@id="productDetails_detailBullets_sections1"]/tr/td/text()').extract_first()
+mrp:
+# response.xpath('//div[@class="a-section a-spacing-small"]/table/tr/td/span/span[@class ="a-offscreen"]/text()').extract_first()
+ response.xpath('//div[@class="a-section a-spacing-small"]/table/tr/td/span[@class="a-price a-text-price a-size-base"]/span/text()').extract_first()
+deal of the day:
+response.xpath('//div[@class="a-section a-spacing-small"]/table/tr/td/span[@class="a-price a-text-price a-size-medium apexPriceToPay"]/span[@class ="a-offscreen"]/text()').extract()
+# response.xpath('//div[@class="a-section a-spacing-small"]/table/tr/td/span[@class="a-price a-text-price a-size-medium apexPriceToPay"]/span/text()').extract_first()
