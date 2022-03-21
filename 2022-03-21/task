@@ -1,1 +1,10 @@
-
+title:
+response.xpath('//h1/span/text()').extract()
+company name:
+#response.xpath('//a[@id="bylineInfo"]/text()').extract()
+response.xpath('//div[@id = "bylineInfo_feature_div"]/div/a/text()').extract()
+no of reviews:
+response.xpath('//a[@id = "acrCustomerReviewLink"]/span[@id = "acrCustomerReviewText"]/text()').extract_first()
+review:
+response.xpath('//a[@class="a-popover-trigger a-declarative"]/i[@class ="a-icon a-icon-star a-star-4"]/span/text()').extract_first()
+'4.2 out of 5 stars'
