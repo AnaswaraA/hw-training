@@ -1,0 +1,14 @@
+import lxml.html
+import requests
+html= requests.get("https://www.carbon38.com/product/tessa-top-primary-stripe")
+# print(r.text)
+# from lxml import etree
+# html = requests.get("https://www.carbon38.com/shop-all-activewear/tops")
+doc = lxml.html.fromstring(html.content)
+brand_name = doc.xpath("//h1")
+prize = doc.xpath('//div[@class="ProductMeta__PriceList Heading"]/span[@ class ="ProductMeta__Price Price Price--highlight Text--subdued"] / text()')
+brand= doc.xpath('//h2[@class="ProductMeta__Vendor Heading u-h1"]/a/text()')
+reviews = doc.xpath('//div[@class="okeReviews-reviewsSummary-ratingCount"]/text()')
+image_url = doc.xpath("img.rimage__image ::attr(src)")
+# tree = etree.Element("{")
+# print(etree.tostring(tree, pretty_print=True))
