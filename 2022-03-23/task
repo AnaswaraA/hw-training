@@ -1,0 +1,65 @@
+import requests
+import lxml.html
+import json
+
+base_url = 'https://www.carbon38.com/'
+search_url ='https://www.carbon38.com/shop-all-activewear/tops'
+data = {
+    'brand_name': [],
+    'brand': [],
+    'prize': [],
+    'reviews': [],
+    'color': [],
+    'size': [],
+
+}
+def Carbon_url(data):
+    ht = requests.get(search_url)
+    doc = lxml.html.fromstring(ht.content)
+    m = doc.xpath('//a[@class="isp_product_image_href"]/@href')
+
+    for url in m:
+        Carbon(url=url)
+        with open("carbon1.json", "a") as f:
+            f.write(json.dumps(data, indent=2))
+def Carbon(url):
+    link_datas = requests.get(search_url)
+    link = lxml.html.fromstring(link_datas.content)
+    # brand_name = link.xpath("//h1/text()")
+    # prize = link.xpath(
+    #     '//div[@class="ProductMeta__PriceList Heading"]/span[@ class ="ProductMeta__Price Price Price--highlight Text--subdued"] / text()')
+    # brand = link.xpath('//h2[@class="ProductMeta__Vendor Heading u-h1"]/a/text()')
+    # reviews = link.xpath('//div[@class="okeReviews-reviewsSummary-ratingCount"]/text()')
+    # color = link.xpath('//ul[@class="ColorSwatchList HorizontalList HorizontalList--spacingTight"]/li[@class="HorizontalList__Item"]/label/span/text()')
+    # size = link.xpath('//div[@class="ProductForm__Option ProductForm__Option--labelled"]/fieldset[@class="ProductForm__Fieldset"]/ul[@class="SizeSwatchList HorizontalList HorizontalList--spacingTight"]/li/label/text()')
+    data['brand_name']=link.xpath("//h1/text()")
+    data['brand']= link.xpath('//h2[@class="ProductMeta__Vendor Heading u-h1"]/a/text()')
+    data['prize'] = link.xpath(
+        '//div[@class="ProductMeta__PriceList Heading"]/span[@ class ="ProductMeta__Price Price Price--highlight Text--subdued"] / text()')
+    data['reviews']=link.xpath('//div[@class="okeReviews-reviewsSummary-ratingCount"]/text()')
+    data['color']=link.xpath('//ul[@class="ColorSwatchList HorizontalList HorizontalList--spacingTight"]/li[@class="HorizontalList__Item"]/label/span/text()')
+    data['size']= link.xpath('//div[@class="ProductForm__Option ProductForm__Option--labelled"]/fieldset[@class="ProductForm__Fieldset"]/ul[@class="SizeSwatchList HorizontalList HorizontalList--spacingTight"]/li/label/text()')
+    print("brand_name",data['brand_name'])
+    print("brand",data['brand'])
+    print("prize",data['prize'])
+    print("reviews",data['reviews'])
+    print("color",data['color'])
+    print("size",data['size'])
+def Carbon_next(search_url):
+    ht = requests.get(search_url)
+    doc = lxml.html.fromstring(ht.content)
+    m = doc.xpath('//a[@class="isp_product_image_href"]/@href')
+    if ht.status_code == requests.codes.ok:
+        ht = requests.get(search_url)
+        doc = lxml.html.fromstring(ht.content)
+        m = doc.xpath('//a[@class="isp_product_image_href"]/@href')
+
+        # links = requests.get(search_url)
+        # link_datas = lxml.html.fromstring(links.content)
+        
+
+        for link in m:
+            Carbon(link)
+Carbon_url(data)
+
+Carbon_next(search_url)
