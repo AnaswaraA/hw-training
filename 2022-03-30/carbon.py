@@ -67,7 +67,7 @@ def carbon(url):
     image_url = link.xpath('//div[@class="AspectRatio AspectRatio--withFallback"]/img/@data-src')[0]
     data["image_url"] = "https:"+ image_url
 
-    with open("datas.json", "a") as f:
+    with open("datac.json", "a") as f:
         f.write(json.dumps(data )+",\n")
     print(data)
 carbon_crawler('https://www.carbon38.com/shop-all-activewear/tops')
