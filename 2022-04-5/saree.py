@@ -38,7 +38,6 @@ def saree(url):
         temp_data = [data]
         with open('sareec.csv','a') as f:
             writer = csv.DictWriter(f, fieldnames=field)
-            writer.writeheader()
             writer.writerows(temp_data)
 
 
