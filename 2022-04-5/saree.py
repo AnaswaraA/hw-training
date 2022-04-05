@@ -6,7 +6,9 @@ import csv
 field =['count','product_code','product_name','image_url']
 pro =[]
 data ={'count':0}
-
+with open('sareec.csv', 'a') as f:
+    writer = csv.DictWriter(f, fieldnames=field)
+    writer.writeheader()
 def saree_page(start_url):
     ht = requests.get(start_url)
     doc = lxml.html.fromstring(ht.content)
